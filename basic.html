@@ -1,0 +1,154 @@
+<!--
+Acest fisier contine notiuni introductive despre HTML
+	* terminologie
+	* structura unui fiser HTML
+	* anatomia unu tag HTML
+	* Block level VS inline
+	* italic = emphasize
+	* strong = bold
+	* small VS big
+	* sub VS sup
+	* mark (marker galben)
+	* ins = subliniaza
+	* del = linie taiata peste
+	* Div VS Span
+	* liste
+	* notatie pentru <,>,& (a nu se confunda cu sintaxa)
+	* &copy; (simbolul de copyright)
+	* &nbsp; (fragment de tet devin solidar la resize-ul viewportului)
+	* tabele
+
+
+HYPER   = totul se leaga prin linkuri 
+TEXT    = 
+MARKUP  = se refera la continutul dintre tag-uri
+LANGUAGE= are sintaxa lui de cod 
+
+HTML este procesat TOP->BOTTOM
+
+Anatomia unui tag HTML
+	<p id = "myId"></p>
+	<p atribute></p>
+	<p atribute_name = "atribute_value"></p>
+
+Block level elements    VS   Inline elements
+*incepe pe linie noua        *incepe pe aceasi linie 
+DIV                          SPAN 
+div nu poate fi child 
+al lui span!
+-->
+<!doctype html>
+<html>
+<head>
+	<!--meta NU are close tag si se refera aici la codificarea caracterelor-->
+	<meta charset = "utf-8">
+	<title>Hello World</title>
+</head>
+
+
+<body>
+	<!--paragraful este fundamental in HTML-->
+	<p>Paragraf Hello World!</p>
+
+
+	<!--
+	heading-urile se folosesc exclusiv ca heading-uri, nu pt stilare. Heading-urile sunt de la 1 la 6
+	-->
+	<h1>Heading principal</h1>
+	<h2>Heading secundar</h2>
+	<h3>Heading tertiar</h3>
+	<h4>Heading 4</h4>
+	<h5>Heading 5</h5>
+	<h6>Heading 6</h6>
+
+
+	<!--
+	italic = emphasize
+	strong = bold
+	small VS big
+	mark = marker galben
+	sub VS sup
+	ins = subliniaza
+	del = linie taiata peste
+	-->
+	<p>Lorem ipsum dolor <i>sit amet, consectetur</i> adipiscing elit.</p> 
+	<p>Lorem ipsum dolor <em>sit amet, consectetur</em> adipiscing elit.</p> 
+	<p>Lorem ipsum dolor <b>sit amet, consectetur </b>adipiscing elit.</p> 
+	<p>Lorem ipsum dolor <strong>sit amet, consectetur</strong> adipiscing elit.</p> 
+	<p>Lorem ipsum dolor <big>sit amet, consectetur</big> adipiscing elit.</p> 
+	<p>Lorem ipsum dolor <small>sit amet, consectetur</small> adipiscing elit.</p> 
+	<p>Lorem ipsum dolor <mark>sit amet, consectetur</mark> adipiscing elit.</p> 
+	<p>Lorem ipsum dolor <ins>sit amet, consectetur</ins> adipiscing <del>elit.</del></p> 
+	<p>If x<sub>1</sub> = x<sup>2</sup>, then you know math</p>
+
+
+	<!--
+	Div VS Span
+	Span-ul este child-ul lui div dar div nu este child pentru span
+	-->
+	<div style = "background:red">Acesta este un div <span style = "background:yellow">care contine si un span</span></div>
+
+
+	<!--
+	liste pot fi ordered, unordered
+	celor ordered li se poate specifica numarul de start
+	prezint si exemplu de lista imbricata
+	-->
+	<ul>
+		<li>My first item</li>
+		<li>My second item</li>
+		<li>
+			My third item
+			<ul>
+				<li>One</li>
+				<li>Two</li>
+				<li>Three</li>
+			</ul>
+		<li>My fourth element</li>
+	</ul>
+	<ol>
+		<li>My first item</li>
+		<li>My second item</li>
+		<li>My third item</li>
+	</ol>
+	<ol start="1992">
+		<li>The year I was born</li>
+		<li>The year I started to walk</li>
+	</ol>
+	<ol start="1993" reversed>
+		<li>The year I started to walk</li>
+		<li>The year I was born</li>
+	</ol>
+
+
+	<!-- 
+	notatie pentru <,>,& (a nu se confunda cu sintaxa) 
+	&lt; in loc de <
+	&gt; in loc de >
+	&amp; in loc de &
+	&copy; (simbolul de copyright)
+	&nbsp; (in aceste exemplu "ligula et ipsum" devin solidare la resize-ul veiwport-ului, ori raman toate trei ori se duc in jos de la resize)
+	-->
+	<p>Don`t be afraind to be &lt; then a 100% succes &amp; be &gt; more</p>
+	<p>Theodor Roosevelt 1910 &copy; Copyright</p>
+	<p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla eu vulputate metus, quis elementum urna. Maecenas molestie aliquam dolor, non rhoncus odio tempus eu. Nam interdum <mark>ligula&nbsp;et&nbsp;ipsum</mark> sodales feugiat. Nulla facilisi. Nam vel lobortis ligula."</p>
+
+
+	<!--
+	tabele
+	th = table header
+	tr = table row
+	td = table data
+	-->
+	<table>
+		<thead>
+			<tr><th>Skills</th><th>Difficulty</th><th>My level</th><tr>
+		</thead>
+		<tbody>
+			<tr><td>HTML</td><td>easy</td><td>some</td><tr>
+			<tr><td>CSS</td><td>medium</td><td>a little</td><tr>
+			<tr><td>JAVASCRIPT</td><td>hard</td><td>zero</td><tr>
+		</tbody>
+	</table>
+</body>
+</html>
