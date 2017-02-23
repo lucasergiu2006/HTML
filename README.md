@@ -1,2 +1,2 @@
 # HTML
-Html learn
+Acest repository contine un tutorial despre HTML
