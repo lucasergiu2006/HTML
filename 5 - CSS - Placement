@@ -1,0 +1,31 @@
+<!--
+Cuprins
+	* style placement
+			1) fisier extern si referit in head (cel mai reutilizabil)
+	 		2) in head, in tag-ul style
+	 		3) inline styling (la element) (cel mai putin reutilizabil)
+
+-->
+<!doctype html>
+<html>
+<head>
+	<title>CSS placement</title>
+	<meta charset = "utf-8">
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "css">
+	<style>
+	p
+	{
+		color:yellow;
+	}
+	</style>
+	<link rel = "stylesheet" href = "style.css">
+
+</head>
+
+<body>
+	<p style = "color:blue; background-color: red; display:block; width:360px">Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
+	<section><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p></section>
+</body>
+</html>
