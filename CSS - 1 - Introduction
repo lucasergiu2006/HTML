@@ -1,0 +1,230 @@
+<!--
+CASCADING STYLE SHEETS
+
+CUPRINS
+	* anatomia unei reguli css
+	* cele 3 tipuri de selectori
+	* combinarea si gruparea selectorilor
+	* selectori de pseudo-clase
+	* formula prin care limitez continutul
+
+
+
+ANATOMIA UNEI REGULI CSS
+Mai jos avem un simplu stylesheet
+<style>
+	SELECTOR (CUI VREAU SA APLIC REGULA) 
+	{
+		PROPRIETATEA 1: VALOARE 1;
+		PROPRIETATEA 2: VALOARE 2;
+	}
+</style>
+
+TIPURI DE SELECTORI
+	1)ELEMENT
+	p {...}  // se aplica tuturor paragrafelor
+
+ 	2)CLASS // pot aplica mai multor elemente
+ 	.1 {...}
+ 	<div class = "1">...</div>
+
+ 	3)ID // aplic unui singurl element, este UNIC
+ 	#1 {...}
+ 	<div id = "1">...</div>
+
+
+
+
+
+-->
+<!doctype html>
+<html>
+<head>
+	<title>CSS Intro</title>
+	<meta charset = "utf-8">
+	<meta name = "author" content = "Sergiu Luca">
+	<meta name = "keywords" content = "CSS,intro">
+
+	<style>
+    /* CELE 3 TIPURI DE SELECTORI */
+	/* width = pe cat se intind pe orizontala */
+	h1 /* selector element */
+	{
+		text-align: center;
+		color: #FF0000;
+	}
+	p /* selector element */
+	{ 
+		color: #0000FF; 
+		font-size: 15px;
+		width: 400px;
+	}
+	.class_example /* selector clasa */
+	{
+		font-style: italic;
+		background-color: yellow;
+		opacity: .3; /* 0 = transparent, 1 = opac */
+		font-weight: bold;
+	}
+	#id_example /* selector id */
+	{
+		background-color: pink;
+		opacity: .6;
+    }
+
+
+
+    /* COMBINAREA SI GRUPAREA SELECTORILOR */
+    p.class_example /* selectam doar paragrafele ce fac parte din class_example */
+    {
+    	font-size: 20px;
+    }
+    section > p /* selectam doar paragrafele ce sunt copilul direct lui section */
+    {
+    	color: purple;
+    }
+    /* selectam toate paragrafele care sunt copil, nepot, stranepot etc a lui article. */
+    article  p  
+    {
+    	color: orange;
+    }
+    /* se pot aplica mai multe clase deodata pe un element. vezi aplicarea mai jos, in body */
+    .class1
+    {
+    	background-color: red;
+    }
+    .class2
+    {
+    	color: white;
+    	width: 300px;
+    	font-size: 20px;
+    }
+    /* tuturor elementelor ce fac parte din class1 si class2 li se va aplica proprietatea */
+    .class1.class2
+    {
+    	font-style: italic;
+    }
+
+
+
+	/* 
+    	SELECTORI DE PSEUDO-CLASE
+    	selector(simplu sau grupat):pseudo-clasa // NU AM VOIE SPATIU la :
+    	{
+    		...;
+    		...;
+    	}
+    */
+    header li /* stilez lista ca un meniu */ 
+    {
+    	list-style: none;
+	}
+	/* folosesc pseudo-clase pentru a stila linkurile */
+	a:link, a:visited /* cum apare linkul inainte si dupa ce a fi vizitat*/
+	{
+		text-decoration: none;
+		background-color: green;
+		border: 1px solid blue;
+		color: black;
+		display: block; /* se intinde pe toata latimea pentru a fi de dimensiuni egale */
+		width: 200px;   /* se limiteaza */
+		text-align: center;
+	}
+	/*
+		active = am facut click pe link dar inca nu am eliberat clickl
+		hover  = facem hover deasupra linkului
+	*/
+	a:hover, a:active 
+	{
+		background-color: red;
+		color: purple;
+	}
+	/* 
+		selectez un anume child in ierarhie a lui header 
+		CUM GANDESC: SPECIFIC O CALE;
+		selectam toti copii li lui header, din acestia selectam pe al 3-lea
+	*/
+	header li:nth-child(3) 
+	{
+		font-size:24px;
+	}
+	/* selectam toate div-urile copii lui section, din acestia doar pe cei impari */
+	section div:nth-child(odd)
+	{
+		background-color: gray;
+		/* formula magica prin care limitez continutul */
+		display: block;
+		width: 60px;
+	}
+	/* selectam toate div-urile lui section, din acestea doar al 4-lea, doar cand ii fac hover */
+	section div:nth-child(4):hover
+	{
+		background-color: green;
+		cursor:pointer;
+		/* formula magica prin care limitez continutul */
+		display: block;
+		width: 60px;
+	}
+	</style>
+</head>
+
+<body bgcolor = "#E0FFFF">
+
+	<h1>Intro to CSS</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod lorem non suscipit faucibus.</p> 
+	<p class = "class_example">Ut lectus quam, sodales in rutrum nec, dignissim pretium justo</p>
+	<p id = "id_example">Ut lectus quam, sodales in rutrum nec, dignissim pretium justo</p>
+	<p>Ut lectus quam, sodales in rutrum nec, dignissim pretium justo</p>
+	<hr>
+
+    <h1>Selector combining</h1>
+	<p class = "class_example">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce euismod lorem non suscipit faucibus.</p> 
+	<p>Lorem ipsum dolor sit amet.<span class = "class_example"> Fusce euismod lorem non</span> suscipit faucibus.</p> 
+
+	<section>
+		<p>Child-ul lui section</p>
+	</section>
+
+	<article>
+		<div><p>Nepotul lui article</p></div>
+	</article>
+	
+	<!-- aplic doua clase deoadata pe un element -->
+	<p class = "class1 class2">Lorem ipsum dolor sit amet</p>
+
+	<hr><h1>Pseudo-class selector</h1>
+
+	<!--header, footer, article, section sunt tag-uri html5-->
+ 	<header>
+  	<ul>
+    	<li><a href="/">Home</a></li>
+    	<li><a href="http://goo.gl/V0Wl6s" target="_blank">AngularJS Course</a></li>
+    	<li><a href="http://www.facebook.com/CourseraWebDev" target="_blank">Facebook Fan Page</a></li>
+  	</ul>
+	</header>
+
+	<section>
+  		<div>DIV 1</div>
+  		<div>DIV 2</div>
+  		<div>DIV 3</div>
+ 		<div>DIV 4</div>
+  		<div>DIV 5</div>
+  		<div>DIV 6</div>
+  		<div>DIV 7</div>
+  		<div>DIV 8</div>
+  		<div>DIV 9</div>
+  		<div>DIV 10</div>
+  		<div>DIV 11</div>
+  		<div>DIV 12</div>
+  		<div>DIV 13</div>
+  		<div>DIV 14</div>
+  		<div>DIV 15</div>
+  		<div>DIV 16</div>
+  		<div>DIV 17</div>
+  		<div>DIV 18</div>
+  		<div>DIV 19</div>
+  		<div>DIV 20</div>
+  	</section>
+
+</body>
+</html>
