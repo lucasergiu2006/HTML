@@ -1,0 +1,100 @@
+<!--
+Acest document contine informatii despre formulare HTML:
+	* form
+	* fieldset/legend
+	* input type = "text"		    (casuta mica de text, se poate scrie oricat dar nu vedem tot decat prin deplasare)
+				 = "submit/reset"   (buton de submit/reset)
+				 = "checkbox/radio" (radio se exclude mutual)
+				 = "number"         (de ex age si are doua sageti de unde cresc sau scad valoarea)
+				 = "date"           (alegi din calendar)
+				 = "color"          (alegi din mai multe culori)
+				 = "range"			(de ex inaltimea, ai un slider)
+	* textarea (i se pot defini nr de coloane/randuri, deci paote fi mai mare ca input type = "text")
+	* selectbox (din mai multe optiuni, ex cu countries)
+
+
+-->
+<!doctype html>
+<html>
+<head>
+	<title>Forms</title>
+	<meta charset = "utf-8">
+	<meta name = "author" content = "Sergiu Luca">
+	<meta name = "keywords" content = "HTML,forms">
+</head>
+
+<body>
+	<!--
+	form colecteaza informatii de la utilizator(i) (feedback). action defineste ce se intampla in momentul in care se trimit date (de exemplu action poate specifica destinatia de pe server)
+	GET VS POST (get va face datele VIZIBILE in URL-ul din bara si are limitari de dimensiune.
+				 De ex get se folosete pentru cateva DATE MICI (cateva sute caractere), nesecrete)
+				(post NU face date vizibile in URL si poate fi folosit pentru date de dimensiuni mari.
+				 De ex post se foloseste in file/video/audio/secret submissions)
+				 
+	FIELDSET/LEGEND sunt folosite pentru a grupa elementele in cadrul unui formular cu o bordura
+	REQUIRED NU permite trimiterea formularului (submit) pana ce NU a fost completat campul respectiv
+	-->
+	<form action = "destionation_server" method = "get">
+		<fieldset>
+			<legend>Your general details</legend>
+			<!--
+			"name" este o eticheta care leaga cuvantul "Name:" de formular astfel incat in momentul 
+			in care se va da click pe cuvantul "Name:", promptul va aparea in interiorul textarea si rextarea va avea margini cu albastru (LABEL FOR =,ID=)
+
+			atributul name = "..." reprezinta numele primit de catre server
+			-->
+			<label for = "name">Name:</label>
+			<input type = "text" placeholder = "Your full name" id = "name" name = "nume_user" required>
+
+			<!--label for nu activeaza nimic dar am ales fiindca este inline cu checkbox-uri-->
+			<br><label>Prefs:</label>
+			<input type = "checkbox" name = "nume_primit_de_server_preferences">Coffee
+			<input type = "checkbox" name = "nume_primit_de_server_preferences">Tea
+
+			<!--label for nu activeaza nimic dar am ales fiindca este inline cu radio-->
+			<br><label>Gender:</label>
+			<input type = "radio" name = "nume_primit_de_server_gender" required>Male
+			<input type = "radio" name = "nume_primit_de_server_gender" required>Female
+
+			<br><label for = "age">Age:</label>
+			<input type="number" id="age" name="age" min="18" max="100" step="1" value="18" required><br>
+
+			<label for = "bday">Date of birth:</label>
+			<input type = "date" id = "bday" name = "birthday" required><br>
+
+			<label for = "color">Favorite color:</label>
+			<input type = "color" id = "color" name = "color"><br>
+
+			<label for = "sw">Secret word:</label>
+			<input type = "password" id = "sw" name = "sw" maxlength = "8" required>
+
+			<br><label for = "country">Which country:</label>
+				<select name = "countries" id = "country">
+					<option value="ro">Romania</option>
+					<option value="us">USA</option>
+					<option value="uk">UK</option>
+				</select>
+
+
+			<br><label>Your height(cm, from short to tall):</label>	
+			<input type = "range" min = "0" max = "200" step = "1" value = "100" name = "height">	
+		</fieldset>
+
+
+
+		<br><br><fieldset>
+			<legend>Your contact information</legend>
+			<label for = "address">Address:</label>
+			<textarea rows = "3" cols = "20" id = "address" name = "adresa_user"></textarea>
+		</fieldset>
+
+
+
+
+		<!--Butonul de submit. Pe buton va scrie "Trimiteti"-->
+		<br><input type = "submit" value = "Trimiteti" name = "submit">
+		<br><br><input type = "reset" value = "Resetati" name = "reset">
+
+	</form>
+</body>
+</html>
