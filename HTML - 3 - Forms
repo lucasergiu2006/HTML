@@ -2,17 +2,15 @@
 Acest document contine informatii despre formulare HTML:
 	* form
 	* fieldset/legend
-	* input type = "text"		    (casuta mica de text, se poate scrie oricat dar nu vedem tot decat prin deplasare)
-				 = "submit/reset"   (buton de submit/reset)
-				 = "checkbox/radio" (radio se exclude mutual)
-				 = "number"         (de ex age si are doua sageti de unde cresc sau scad valoarea)
-				 = "date"           (alegi din calendar)
-				 = "color"          (alegi din mai multe culori)
-				 = "range"			(de ex inaltimea, ai un slider)
+	* input type = "text"	        (casuta mica de text, se poate scrie oricat dar nu vedem tot decat prin deplasare)
+	             = "submit/reset"   (buton de submit/reset)
+	             = "checkbox/radio" (radio se exclude mutual)
+		     = "number"         (de ex age si are doua sageti de unde cresc sau scad valoarea)
+	             = "date"           (alegi din calendar)
+		     = "color"          (alegi din mai multe culori)
+	             = "range"		(de ex inaltimea, ai un slider)
 	* textarea (i se pot defini nr de coloane/randuri, deci paote fi mai mare ca input type = "text")
 	* selectbox (din mai multe optiuni, ex cu countries)
-
-
 -->
 <!doctype html>
 <html>
