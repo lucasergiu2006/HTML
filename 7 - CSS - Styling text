@@ -1,0 +1,73 @@
+<!--
+Cuprins
+	* diverse proprietati de stilizare a textului, in <style>
+-->
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "...,...">
+	<title>Styling text</title>
+	<style>
+
+		.style1
+		{
+			/* 
+				Cum arata font-ul, gen TNR. Ofer mai multe optiuni in caz ca 
+				borwser-ul user-ului nu recunoaste prima optiune 
+			*/
+			font-family: "Arial, Helvetica, sans-serif"; 
+
+			/* specificam culoarea */
+			color: #0000ff;
+
+			/* stilul font-ului, gen italic,oblic */
+			font-style: italic;
+
+			/* cat de gros este. pot sa zic si un numar in loc de bold */
+			font-weight: bold;
+
+			/* dimensiunea fontului */
+			font-size: 24px;
+
+			/* 
+				TRANSFORMAR PE TEXT, de ex
+				capitalize, entire text uppercase, entire text lowercase 
+			*/
+			text-transform: capitalize;
+
+			/* il limitez sa ocupe pe orizontala doar 400px*/
+			display: block;
+			width: 400px;
+
+			/* alinierea textului in cadrul celor 400px la care am limitat */
+			text-align: right;
+
+		}
+	
+	</style>
+</head>
+
+<body>
+	<p class = style1>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+	<div>Regular text</div>
+	<!-- 
+		xem ia dimensiunea elementului si o creste de x ori 
+		as fi putut sa zic in loc de 2 em un 200%
+	-->
+	<div style = "font-size: 2em;">
+		2em text
+		<div style = "font-size: 2em;">
+			4em text
+			<!-- minimizez dim elementului la jumate -->
+			<div style = "font-size: .5em;">
+				2em text again
+			</div>
+		</div>
+	</div>
+
+
+	
+</body>
+</html>
