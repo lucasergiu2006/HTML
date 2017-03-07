@@ -1,0 +1,86 @@
+<!--
+Cuprins
+	* tag-uri html 5
+			* <section> defineste o sectiune in document cu el inrudite
+			* <article> defineste un post de blog, forum, ziar etc
+			* <header>/<footer> definesc header-ul si footer-ul in document
+			* <nav> defineste un bloc de navigatie (link-uri)
+
+	* "cascading" fiindca pe un element HTML se pot aplica mai multe reguli de stil
+
+	* reguli pentru conflict
+			1) Last declaration wins
+			   De la general la specific: fisier css extern, style din head, style la element
+			   Daca avem acelasi grad de specificitate, atunci ultima declaratie castiga
+			2) Mosteniri. 
+			   Daca specific o prop pe un element, atunci toti copii lui vor mosteni acea prop
+			   Daca specific o prop al unui element child, atunci primeaza in fata prop mostenite
+			3) Specificitatea 
+			   style = "" | ID | class | # of elements
+			   castiga CEL MAI MARE scor
+			   EXEMPLE
+			   		  <h2 style = "color: green;">
+			   		  1 0 0 0 
+					
+					  // toate paragrafele copil,nepot,stranepot etc a lui  div
+			   		  div p {color: green}
+			   		  0 0 0 2 // sunt 2 elemente: div,p
+
+					  // toate elementele cu id-ul respectiv copil, nepot, stranept etc a lui div
+			   		  div #myParag {color:blue}
+					  0 1 0 1
+
+					  // toate paragrafele ce sunt copil, nepot, stranepot etc a lui ->
+					  // -> toate div-urile din clasa big
+			   		  div.big p {color: green}
+			   		  0 0 1 2 
+-->
+<!doctype html>
+<html>
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "css,cascading,conflict,resolution">
+	<title>Conflict resolution</title>
+
+	<style>
+	/* copii lui body vor mosteni prop, mai putin daca le specific alte prop explicit, cum e cazul paragrafelor */
+	body
+	{
+		color: red;
+		text-align: center;
+	}
+	p 
+	{
+		font-size: 130%;
+		background-color: gray;
+		color: white;
+	}
+	p /* last declaration wins. ambele p au acelasi grad de specificitate - declarate in <style> in <head> */
+	{
+		color: maroon;
+	}
+	/* important forteaza prioritatea si ofera prioritate maxima */
+	/*
+	p
+	{
+		color: green !important;
+	}
+	*/
+
+	
+
+    </style>
+</head>
+
+<body>
+	<header><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></header>
+	<!--h1 a mostenit centrarea si culoarea rosie de la body-->
+	<h1>Lorem ipsum dolor</h1>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> 
+	<!--last declaration wins-->
+	<p style = "color: black;">Last declaration wins</p>
+	<footer><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p></footer>  
+</body>
+</html>
