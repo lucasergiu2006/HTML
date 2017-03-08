@@ -1,0 +1,117 @@
+<!--
+Cuprins
+	* the box model
+	* F12 = Chrome developer tools
+	* box-sizing: border-box;
+	* div-uri imbricate 
+	* colapsarea marginilor
+	* selectorul *
+	* proprietatea de overflow
+
+THE BOX MODEL. Schema in linkul de mai jos:
+	https://www.w3schools.com/css/css_boxmodel.asp
+	box-sizing: border-box; 1) (fara aceasta prop width-ul ar fi fost exclusiv content-ul.
+							   cu aceasta proprietatea witdh = tot width de la o margine exterioara a broder-ului la alta
+							   cu alte cuvinte width = left border + left padding + content + right padding + right border)
+							   ATENTIE: Width se modifica dinamic in functie de height si viceversa si dim se modifica in functie de content in general
+
+							2) proprietatea NU se poate mosteni. deci daca o pun in body NU se mosteneste
+							   * {box-sizing: border-box;}. Selectez fiecare element si ii aplic proprietatea
+
+							3) este o proprietate CSS3. Unele proprietati de CSS3 NU sunt agreate de orice browser
+							   http://caniuse.com/
+							   Verific daca browserele sunt pe verde, inseamna ca accepta proprieta
+Colapsarea marginilor
+	Daca am doua margini, una in sus si una sub ea, ramane intre ele marginea mai mare, NU se aduna
+	Daca ar fi fost una langa alta, s-ar fi adunat
+
+Selectorul * selecteaza toate elementele si le aplica o proprietate
+	Q: Nu pot sa specific in selectorul body proprietatea si sa o mosteneasca toti?
+	A: Da, dar unele elemente ce-l mostenesc pe body, fac overwrite la prop, ori 
+	   scris de user, ori foarte frecvent din setarile defautl ale browserului.
+	   Astfel incat NU vom avea efect. Daca specific prin *, atunci  prop se va aplica obligatoriu tuturor
+
+-->
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "...,...">
+	<title>The Box Model</title>
+	<style>
+		#content
+		{
+			background-color: #90EE90; /* green */
+		}
+		/* forteaza spatiu liber sub el cu inca 30px */
+		#box
+		{
+			background-color: blue;
+			/* 
+			TOP, RIGHT, BOTTOM, LEFT
+			pe scrut as fi putut zice: padding:10px;
+			*/
+			padding: 10px 10px 10px 10px;
+			border: 5px solid black;
+			/* vreau margine de 40 px pe top,right,bottom,left*/
+			width: 300px;
+			/* 
+			box-sizing: border-box;
+			*/
+			margin-top: 50px; /* B) asta, astfel ca se ia 50px, NU 80px. Se colapseaza, fiindca sunt unele sub altele */
+
+			height: 50px;
+			width:500px;
+
+			/* overflow: hidden; */   /* forteaza continutul(copilul) inauntrul lui box */
+			/* overflow: scroll;  */ /* am scroll bar si in jos si in stanga */
+			overflow: auto;          /* copilul inauntrul lui box cu scroll automat */
+
+		}
+		h1
+		{
+			margin-top: 0px;
+			margin-bottom: 30px; /* A) este mai mica decat */
+		}
+		/* 
+		margin era setat default pe 8px 
+		acum continutul din body o sa se lipeasca efectiv de marginile paginii
+		*/
+		body
+		{
+			background-color: gray;
+			margin: 0; 
+			/*
+			   proprietatea NU este mostenita fiindca avem definit default o alta margine. Daca nu ar fi fost redefinita 
+			   (overwrite, ar fi mostenit ) 
+			*/
+		}
+		*
+		{
+			box-sizing: border-box;
+		}
+	</style>
+</head>
+
+<body>
+	<h1>Box Model</h1>
+	<!--
+	2 div-uri imbricate se suprapun. Daca div-ul parent are specificat in style prop de OVERFLOW, 
+	atunci, indiferent de specificatii, div-ul parent VA CUPRINDE DREPT CONTENT (BOX MODEL) pe div-ul child.
+	Daca NU am specificat prop de overflow, atunci, sa zicem ca de ex modific heigth-ul div-ului parent.
+	In aceasta situatie div-ul child ramane pe pozitie si poate sa "iasa" din limitele div-ului parent.
+	Cu overflow, div-ul child ramane drept content div-ului parent indiferent de modificarea prop div-ului parent
+	-->
+	<div id = "box">
+		<div id = "content">
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum turpis in rhoncus venenatis. Phasellus vestibulum sapien quis ex pellentesque scelerisque. Fusce iaculis mauris eu condimentum aliquet. Praesent in vestibulum magna. Morbi erat velit, convallis sed arcu sit amet, dapibus accumsan lectus. Sed eu mi ac est blandit commodo. Nulla ut lacus in diam faucibus finibus</p>
+		</div>
+	</div>
+	
+	<div style = "width: 400px">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean fermentum turpis in rhoncus venenatis. Phasellus vestibulum sapien quis ex pellentesque scelerisque. Fusce iaculis mauris eu condimentum aliquet. Praesent in vestibulum magna. Morbi erat velit, convallis sed arcu sit amet, dapibus accumsan lectus. Sed eu mi ac est blandit commodo. Nulla ut lacus in diam faucibus finibus</p>
+	</div>
+
+</body>
+</html>
