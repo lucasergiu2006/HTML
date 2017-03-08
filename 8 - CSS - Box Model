@@ -11,16 +11,16 @@ Cuprins
 THE BOX MODEL. Schema in linkul de mai jos:
 	https://www.w3schools.com/css/css_boxmodel.asp
 	box-sizing: border-box; 1) (fara aceasta prop width-ul ar fi fost exclusiv content-ul.
-							   cu aceasta proprietatea witdh = tot width de la o margine exterioara a broder-ului la alta
-							   cu alte cuvinte width = left border + left padding + content + right padding + right border)
-							   ATENTIE: Width se modifica dinamic in functie de height si viceversa si dim se modifica in functie de content in general
+		                   cu aceasta proprietatea witdh = tot width de la o margine exterioara a broder-ului la alta
+				   cu alte cuvinte width = left border + left padding + content + right padding + right border)
+				   ATENTIE: Width se modifica dinamic in functie de height si viceversa si dim se modifica in functie de content in general
 
-							2) proprietatea NU se poate mosteni. deci daca o pun in body NU se mosteneste
-							   * {box-sizing: border-box;}. Selectez fiecare element si ii aplic proprietatea
+				 2) proprietatea NU se poate mosteni. deci daca o pun in body NU se mosteneste
+				   * {box-sizing: border-box;}. Selectez fiecare element si ii aplic proprietatea
 
-							3) este o proprietate CSS3. Unele proprietati de CSS3 NU sunt agreate de orice browser
-							   http://caniuse.com/
-							   Verific daca browserele sunt pe verde, inseamna ca accepta proprieta
+				3) este o proprietate CSS3. Unele proprietati de CSS3 NU sunt agreate de orice browser
+				   http://caniuse.com/
+				   Verific daca browserele sunt pe verde, inseamna ca accepta proprieta
 Colapsarea marginilor
 	Daca am doua margini, una in sus si una sub ea, ramane intre ele marginea mai mare, NU se aduna
 	Daca ar fi fost una langa alta, s-ar fi adunat
