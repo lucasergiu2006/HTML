@@ -37,7 +37,7 @@ Selectorul * selecteaza toate elementele si le aplica o proprietate
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name = "author"   content = "Sergiu Luca">
-	<meta name = "keywords" content = "...,...">
+	<meta name = "keywords" content = "css,box,model">
 	<title>The Box Model</title>
 	<style>
 		#content
