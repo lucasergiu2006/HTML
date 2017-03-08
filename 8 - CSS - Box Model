@@ -22,8 +22,8 @@ THE BOX MODEL. Schema in linkul de mai jos:
 				   http://caniuse.com/
 				   Verific daca browserele sunt pe verde, inseamna ca accepta proprieta
 Colapsarea marginilor
-	Daca am doua margini, una in sus si una sub ea, ramane intre ele marginea mai mare, NU se aduna
-	Daca ar fi fost una langa alta, s-ar fi adunat
+	Daca am doua margini suprapuse, ramane intre ele marginea mai mare, NU se aduna
+	Daca ar fi fost una langa alta (side by side), s-ar fi adunat
 
 Selectorul * selecteaza toate elementele si le aplica o proprietate
 	Q: Nu pot sa specific in selectorul body proprietatea si sa o mosteneasca toti?
