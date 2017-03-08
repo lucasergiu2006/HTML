@@ -55,7 +55,7 @@ Selectorul * selecteaza toate elementele si le aplica o proprietate
 			padding: 10px 10px 10px 10px;
 			border: 5px solid black;
 			/* vreau margine de 40 px pe top,right,bottom,left*/
-			width: 300px;
+			;
 			/* 
 			box-sizing: border-box;
 			*/
@@ -63,6 +63,7 @@ Selectorul * selecteaza toate elementele si le aplica o proprietate
 
 			height: 50px;
 			width:500px;
+			
 
 			/* overflow: hidden; */   /* forteaza continutul(copilul) inauntrul lui box */
 			/* overflow: scroll;  */ /* am scroll bar si in jos si in stanga */
