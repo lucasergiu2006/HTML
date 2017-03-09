@@ -11,13 +11,15 @@ Cuprins:
 	<meta name = "keywords" content = "...,...">
 	<title>Positioning and background</title>
 	<style>
-	/* Prop ale background-ului */
+	
 	*
 	{
 		box-sizing: border-box;
 		margin: 0;
 		padding: 0;
 	}
+	
+	/* Prop ale background-ului */
 	#bg
 	{
 		width: 300px;
