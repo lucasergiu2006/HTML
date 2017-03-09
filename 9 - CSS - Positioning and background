@@ -28,7 +28,7 @@ Cuprins:
 		opacity: .5;
 
 		/* Prop imaginii */
-		background-image: url("pizza.jpg");
+		background-image: url("pizza.jpg"); /* imaginea se afla in folderul "Resources for 2" */
 		background-size: 200px 200px; 
 		background-repeat: no-repeat;
 		background-position: top left; /* orizontal, vertical */
