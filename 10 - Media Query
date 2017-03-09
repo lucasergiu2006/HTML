@@ -1,0 +1,94 @@
+<!--
+Cuprins:
+	* Media Query
+
+
+Structura unui stylesheet cu media query:
+
+1. BASE STYLE - se aplica indiferent de specificatiile din media query
+2. MQ1
+3. MQ2 etc.
+EX:
+1. p {color: blue}
+2. @media(min-width: 1200px) {...} //of the viewport
+3. @media (min-width: 992px) and (max-width: 1199px) {...}
+OBS: 
+NU suprapun limitele intervalelor
+Breakpoint = limita dintre un media query si altul
+
+Deschidem Crome developer tools (F12) si, la resize, in top right va aparea
+dimensiunea veiwport-ului (wxh).De asemenea, butonul de mobile din chrome dev tools
+arata diverse optiuni pt mobile.De ex: cum arata site-ul pe diverse device-uri mobile
+-->
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "media,Query">
+	<title>Media query</title>
+	<style>
+	/********** Base styles **********/
+	h1 
+	{
+  		margin-bottom: 15px;
+	}
+	p 
+	{
+  		border: 1px solid black;
+  		margin-bottom: 15px;	
+	}
+	#p1 
+	{
+  		background-color: #A52A2A;
+  		width: 300px;
+  		height: 300px;
+	}
+	#p2 
+	{
+  		background-color: #DEB887;
+  		width: 50px;
+  		height: 50px;
+	}
+
+	/********** Large devices only **********/
+	@media(min-width: 1200px)
+	{
+		#p1
+		{
+			width: 80%; /* ocupa 80% din ecran pe width */
+		}
+		#p2
+		{
+			width: 150px;
+			height: 150px;
+		}
+	}
+
+
+
+	/********** Medium devices only **********/
+	@media(min-width: 992px) and (max-width: 1199px)
+	{
+		#p1
+		{
+			width: 50%; /* ocupa 50% din ecran pe width */
+		}
+		#p2
+		{
+			width: 100px;
+			height: 100px;
+		}
+
+	}
+
+	</style>
+</head>
+
+<body>
+	<h1>Media Queries</h1>
+
+	<p id="p1"></p>
+	<p id="p2"></p>
+</body>
+</html>
