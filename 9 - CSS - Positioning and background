@@ -1,0 +1,110 @@
+<!--
+Cuprins:
+	* proprietatea de background/imagine de background
+	* positioning of elements (static, relative, absolute)
+-->
+<!doctype html>
+<html> <!-- singurul element cu pozitionare non-statica by default -->
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "...,...">
+	<title>Positioning and background</title>
+	<style>
+	/* Prop ale background-ului */
+	*
+	{
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+	#bg
+	{
+		width: 300px;
+		height: 300px;
+		background-color: blue;
+		opacity: .5;
+
+		/* Prop imaginii */
+		background-image: url("pizza.jpg");
+		background-size: 200px 200px; 
+		background-repeat: no-repeat;
+		background-position: top left; /* orizontal, vertical */
+	}
+
+
+
+
+	/* 
+		Pozitionarea elementelor:
+		RELATIVA - pozitionare relativa la pozitia default in document
+				 - elementul ramane in document flow, chiar daca viuzal nu e acolo
+				 - se pot folosi si valori negative
+
+				
+		ABSOLUTA - pozitionarea relativa la cel mai apropiat stramos cu o pozitionare, alta decat statica(default)
+				 - elementul NU ramane in document flow (celelalte elemente se comporta ca si cum nu ar fi fost acolo)
+				 - elementul html este singurul element cu pozitionare non-statica
+
+		Daca mut un element container cu position:relative, atunci se muta cu tot cu elementele
+		continute, acestea ramanand pe pozitie 
+
+	*/
+
+	/* la pozitionare RELATIVA ramane in document flow */
+	#p1 
+	{
+		width: 50px;
+		height: 50px;
+		background-color: pink;
+		position: relative;
+		top: 5px; 	/* from top of it`s default position */
+		left: 55px; /* from left of it`s default position */
+		margin-bottom: 10px; /* creeaza o margine de 10 px sub acesta */
+	}
+
+	/* pe cand la ABSOLUTA NU ramane in docuemnt flow */
+	#p2 
+	{
+		width: 50px;
+		height: 50px;
+		background-color: black;
+		position: absolute;
+		bottom: 10px; /* from the bottom of the nearest non-static ancestor: div1; */
+		right: 10px;  /* from the right of the nearest non-static ancestor: div1; */
+	}
+	#p3
+	{
+		width: 50px;
+		height: 50px;
+		background-color: green;
+	}
+	#div1
+	{
+		background-color: grey;
+		width: 300px;
+		height: 100px;
+		/* this is the the nearest non-static ancestor for the p2 with position: absolute elements */
+		position: relative; 
+		top: 30px; /* se muta cu tot ceea ce contine. ceea ce contie ramane pe pozitie*/
+
+	}
+	</style>
+</head>
+
+<body>
+	<div id = "bg">
+		<section>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</section>
+	</div>
+	<p id = "p1"></p><br>
+	<div id = "div1">
+		<p id = "p2"></p>
+		<!--
+		daca ii aplic lui p2 position:absolute, este scos din document flow
+		p3 ii ia locul, suprapunandu-l
+		-->
+		<p id = "p3"></p>
+	</div>
+	
+</body>
+</html>
