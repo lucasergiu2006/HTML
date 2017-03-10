@@ -1,0 +1,91 @@
+<!--
+Cuprins:
+	* Introducere in Bootstrap
+	* explicatii tag-uri meta/ <html lang = "...">
+	* Bootstrap grid sistem
+
+
+Bootstrap
+	- este cel mai popular framework HTML,CSS,JS pentru dezvoltarea proiectelor web responsive si mobile first  
+-->
+<!doctype html>
+<!--specific limba primara a site-ului (a documentului)-->
+<html lang = "en">
+<head>
+	<!--Codificarea caracterelor-->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+	<!--Autor si cuvinte cheie pentru motoarele de cautare-->
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "Boostrap,framework">
+
+	<!-- 
+	Mai intai specificam fisierul de bootstrap si apoi style.css,
+	deoarece styles.css particularizeaza elemente de bootstrap
+	-->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!--
+    Primul meta asigura compatibilitate pt IE
+    Al doilea scoate prop de zomm out al device-urilor mobile intrucat designul este responsive
+    -->
+    <meta http-equiv = "X-UA-Compatible" content = "IE=edge">
+    <meta name = "viewport" content = "width=device-width, initial-scale=1">
+
+	<title>Boostrap - Introduction</title>
+</head>
+
+<body>
+	<h1>Introduction to Bootstrap</h1>
+
+	<!-- Bootstrap depinde de jQuery -->
+	<script src = "js/jquery-3.1.1.min.js"></script>
+  	<script src = "js/bootstrap.min.js"></script>
+  	<script src ="js/script.js"></script>
+
+  	<!--clasa container-fluid ofera elementului padding-->
+  	<div class = "container-fluid">
+  		<!--
+  			row ocupa tot width-ul containerului
+  		
+
+			100/12*4 = 33.33%
+			deci fiecare div ocupa 1/3 din row
+			deci vom avea 3 coloane  
+
+			100/12*6 = 50%
+			deci fiecare div ocupa 1/2 din row
+			deci vom avea 2 cloane 
+			dar 3 elemente. prima linie va cuprinde doua coloane cu primele 2 elemente (primele 2 div-uri)
+							pe cand urmatoarea linie va cuprinde o coloana cu al 3-lea element (al 3-lea div)
+
+			Breakpoints pentru dimensiunea (width) a device-urile se pot vizualiza aici:
+			http://getbootstrap.com/css/#grid-options
+
+			La device-uri mai mici decat sm (<768px), fiindca NU am specificat nimic altceva, coloanele se vor stivui (colapsa) una peste cealalta 
+			Daca as fi specificat .col-xs- atunci ar fi avut comportament de Horizontal at all times (cf specificatiei)
+			Cf specificatiei, clasele .col-sm- .com-md- .col-lg- sunt colapsate (stivuite) sub breakpoint si orizontale peste breakpoint
+
+    	-->
+    	<div class = "row">
+			<div class = "col-md-4 col-sm-6">Col 1</div>
+      		<div class = "col-md-4 col-sm-6">Col 2</div>
+      		<div class = "col-md-4 col-sm-6">Col 3</div>
+      	</div>
+
+      	<div class = "row">
+			<div class = "col-md-4 col-sm-6">Col 1</div>
+      		<div class = "col-md-4 col-sm-6">Col 2</div>
+      		<div class = "col-md-4 col-sm-6">Col 3</div>
+      	</div>
+
+      	<div class = "row">
+			<div class = "col-xs-6 col-sm-4">Col 1</div>
+      		<div class = "col-xs-6 col-sm-4">Col 2</div>
+      		<div class = "col-xs-6 col-sm-4">Col 3</div>
+      	</div>
+    </div>
+
+</body>
+</html>

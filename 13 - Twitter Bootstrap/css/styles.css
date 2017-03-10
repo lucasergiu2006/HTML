@@ -1,0 +1,10 @@
+.row
+{
+	margin-bottom: 15px;
+}
+/* selectam div-urile ce sunt copilul lui row */
+.row > div
+{
+	border: 2px solid red;
+	background-color: gray;
+}
