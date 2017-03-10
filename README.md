@@ -1,8 +1,3 @@
-# HTML,CSS,JS
-Acest repository contine informatii despre front end development.
-Codul a fost dezvoltat folosind Sublime Code Editor.
-Testele s-au facut folosind Markup Validation Service https://validator.w3.org/#validate_by_input si Chrome developer tools.
-Browserul folosit: Google Chrome. De asemenea, am folosit browser-sync in procesul de dezvoltare.
-
+This repository contains front end development related files. (HTML, CSS, JavaScript, Responsive design). The code was developed using Sublime code editor and tested using both Chrome developer tools  and the Markup Validation Service listed on the fallowing link https://validator.w3.org/#validate_by_input .Also, browser-sync was used (from windows cmd line) in the development process.
 
 
