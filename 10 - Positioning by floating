@@ -1,0 +1,50 @@
+<!--
+Cuprins:
+	* pozitionarea prin flotare
+-->
+<!doctype html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "floating,positioning">
+	<title>Floating positioning</title>
+<style>
+img
+{
+  /* 
+  se duce in dreapta el continator si i se ocupa spatiul (taken out of doc flow)
+  fara float, textul s-ar fi dus sub imagine
+  */
+  float: right; 
+}
+div
+{
+  background-color: pink;
+  opacity: .7;
+  width: 300px;
+  height: 300px;
+  overflow: auto;
+}
+p
+{
+  border: 1px solid red;
+  /* cu aceasta prop textul nu va mai ocupa spatiul rezultat in urma flotarii imaginii */
+  /* clear: right; */
+  
+}
+
+</style>
+</head>
+<body>
+<h1>Float positioning</h1>
+<!--
+daca contine un element nu inseamna ca il si limiteaza la dim sa. div nu limiteaza p sa se incadreze in div
+se poate rezolva cu overflow: auto (in elemntul continator). Vezi fisierul de box model
+-->
+<div> 
+<img id = "id1" src = "pizza.jpg" alt = "image of pizza" width = "150" height = "150"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolorLorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus imperdiet, nulla et dictum interdum, nisi lorem egestas odio, vitae scelerisque enim ligula venenatis dolor</p></div>
+
+
+</body>
+</html>
