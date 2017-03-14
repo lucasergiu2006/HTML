@@ -1,0 +1,8 @@
+This file contains information about interacting with the client and acquiring information about how they want their website to be designed;
+
+* Bring some site examples to show the client (because a lot of clients have no idee what they want).
+* Everything is important = nothing is important. Encourage the client not to lay a lot of info on the website, but only important information. 
+* Acquire information about the client (for ex, if they allready have a website, and want a new, better one, check out that website).
+* Inform the client about how important is for them to invest in the website (artists, photographers etc.).
+* Limit the number of client reviews during the process of the site`s development. (for ex limit the reviews at 3 free, and the next ones not).
+* Differenciate the graphic design from coding (first graphic design, then coding).
