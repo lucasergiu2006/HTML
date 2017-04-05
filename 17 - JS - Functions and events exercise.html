@@ -1,0 +1,47 @@
+<!--
+	Function and events exercise (recursive function)
+-->
+<!doctype html>
+<html>
+<head>
+	<title>Function and events exercise</title>
+</head>
+
+<body onload = "greet_the_user()">
+<h1>Welcome to my naughty webpage!</h1>
+<script>
+function greet_the_user()
+{
+	alert("Hello");
+	alert("This webpage has loaded");
+	check_user_age()
+}
+function check_user_age()
+{
+    if (age_of_user() < 18)
+	{
+		alert("Please go to another page.");
+		alert("It`s my " + build_great(3) + " grandmother!"); 
+	}
+	else
+		alert("Enjoy!");
+}
+function age_of_user()
+{
+    var age_text, age;
+    /* parseInt necessary because user input is text */
+    age_text = prompt("What is your age?");
+    age = parseInt(age_text);
+    return age;
+}
+/* build_great() is a recursive function, where depth is the control variable */
+function build_great(depth)
+{
+	if (depth > 0)
+		return ("great " + build_great(depth - 1));
+	else
+		return "";
+}
+</script>
+</body>
+</html>
