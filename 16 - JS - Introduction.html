@@ -1,0 +1,208 @@
+<!--
+Content:
+	* Where to place JS scripts 
+		- internal, external
+		- head, body (html is processed head to bottom)
+	* Variables and functions
+		- var var_name = var_value;
+		- function function_name () {}
+		  in matter of scope, it does not matter where the function is called
+		  var var_name = function () {}
+	* 3 Types
+	* Undefined keyword
+	* Control flow statements
+	* String concatenation
+	* Curly braces (inline VS next line)
+	* ===(equality of value and type) VS 
+	  ==(equality of value) VS 
+	  = (assign)
+	* Events (alert, prompt, confirm)
+	* document.location.href, document.write
+	* Conversion by parseInt - parseInt("99.5");
+	* indexOf
+	* while (condition)
+	  {
+	  ...
+	  }
+
+	  VS
+
+	  do // min 1 execution
+	  {
+	  ...
+	  }while(condition);
+	
+-->
+<!doctype html>
+<html lang = "en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "...,...">
+	<title>Javascript introduction</title>
+	<script src = "name_of_js_script.js"></script>
+
+	<script>
+		console.log("Hello world from head!");
+	</script>
+</head>
+
+<body>
+	<script>
+		console.log("Hello world from body!");
+	</script>
+
+	<script>
+		var message = "in-global"
+		console.log("global: message = " + message);
+		/* 
+		we define a function and store it into a variable
+		the scope is local, which has priority vs global 
+		*/
+		var a = function () 
+		{ 
+			var message = "in-a"; 
+			console.log("a: message = " + message); 
+			b();
+		}
+		/* we call the function through a */
+		a();
+		/* the function is sotred into a */
+		console.log(a);
+		/* 
+		we define another function. here b outpus global,
+		it donesn`t matter where is called
+		*/
+		function b () 
+		{
+			console.log("b: message = " + message); 
+		}
+
+
+
+		/* JS types */
+		/* 3 types: number,string,bool */
+		var number1 = 3.2;
+		var number2 = 3;
+		var bigNumber = 123e5; /* 12300000 */
+	
+		var name = "Sergiu";
+		var other_name = 'Sergiu';
+		var yet_another_name = "It`s ok to have spaces";
+		var myString = "true";
+
+		var myBool = true;
+		var myOtherBool = false;
+
+		var x;
+		if (x == undefined) { console.log ("x is undef"); }
+		else { console.log ("x has been defined"); }
+
+
+
+		/* String concatenation */
+		name = name + " is learning JS"
+		console.log(name);
+
+
+
+		/* Booleans */
+		if (false || null || undefined || 0 || NaN || "")
+			{ console.log("This line will not execute") }
+		else
+			{console.log("All false");}
+		if (true && "hello" && 1 && -1 && "false")
+			{console.log("All true");}
+
+
+
+		/* 
+		{} practice exception
+		undefined if curly braces at next line
+		*/
+		/* 
+		function curly_braces_inline()
+		{
+			return {...}; 
+		}
+		*/
+
+
+
+		/* for loop */
+		var i;
+		var sum = 0;
+		for (i = 0; i < 4; i++)
+		{ sum = sum + i; }
+		console.log("The sum from 0 to 3 is " + sum)
+		console.log(i); /*4, i++ gets executed one more time*/
+
+
+
+		function orderChickenWith(sideDish)
+		{
+			sideDish = sideDish || "whatever!"
+			/*
+			true || "whatever" => true (noodles for example)
+			undef|| "whatever" => "whatever"
+			*/
+			console.log("Chicken with " + sideDish);
+		}
+		orderChickenWith("noodles");
+		orderChickenWith();
+
+
+
+		/* Events */
+		/*
+		Alert(outs message)
+		Confirm (asks question) returns:
+			- TRUE   if user hits OK
+			- FALSE  if user hits Cancel
+		After confirm, no ;
+		*/
+		var flag = 0;
+		if(confirm("Want to go to Disneyland?"))
+		{
+			document.location.href = "http://www.implantodent.ro/";
+			flag = 1;
+		}
+		else
+			/* newline */
+			{alert("Too bad!" + "\n" + "for that! :(");}
+		/* 
+		Prompt (request input from user) returns:
+			- value if user writes value and hits OK 
+			- ""    if user doesn`t write anything and hits OK   
+			- null  if user hits Cancel
+		*/
+		if (flag == 0)
+		{
+			var user_name;
+			user_name = prompt("What is your name?");
+			if ((user_name != "") && (user_name != null))
+				document.write("Welcome to my page " + user_name + "!");
+			else 
+			{
+				if(user_name == "")	
+					document.write("Welcome to my page nonamed!");
+				if(user_name == null)	
+					document.write("Why did you hit cancel?!");
+			}
+		}
+	  var string = parseInt("99");
+	  console.log(string); // 99	 
+
+
+
+	  /*indexOf*/
+	  var text = "The cat`s hat was wet"
+	  /* counting from 0, "at" token is on the 5th position in string*/
+		var result = text.indexOf("at");
+		console.log(result);
+
+
+
+	</script>
+</body>
+</html>
