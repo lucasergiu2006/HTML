@@ -1,0 +1,174 @@
+<!--
+Content:
+	* Objects (syntax & literal) 
+	* passing by value VS passing by reference
+		- primitives are passed by value
+		- objects are passed by reference
+	* this keyword
+
+-->
+<!doctype html>
+<html lang = "en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "...,...">
+	<title>Object oriented JS</title>
+</head>
+
+<body>
+	<script>
+	/* Object synatx */
+	/*
+	var company = new Object();
+	company.name = "Facebook";
+
+	company.ceo = new Object();
+	company.ceo.firstName = "Mark";
+	company.ceo.favColor = "blue"
+
+
+	console.log(company);
+	console.log("Company CEO name is " + company.ceo.firstName);
+
+	*/
+	/* Object literal */
+	var company = 
+	{
+		name: "facebook",
+		ceo: /* nesting */
+		{
+			firstName: "Mark",
+			favColor: "blue"
+		},
+		"stock of company": 110,
+		anotherStock: 120 /* comma not after the last propriety */
+	};
+	console.log(company);
+	console.log(company.ceo.firstName);
+
+
+
+	/* 
+	Functions are objects   
+	*/
+	function multiply (x,y) {return x * y;}
+	console.log(multiply(5,3));
+	multiply.version = "v.1.0"
+	/* we are not calling function, we are visualzie function */
+	console.log(multiply); /* function multiply(x,y) {return x * y} */
+	console.log(multiply.version); /* v.1.0 */
+
+
+
+	/* pass by value. they aren`t pointing to the same memory location */
+	var a = 7;
+	var b = a;
+	console.log("a: " + a); //7
+	console.log("b: " + b); //7
+	b = 5;
+	console.log("after b update:");
+	console.log("a: " + a); //7
+	console.log("b: " + b); //5
+
+	function changePrimitive(primValue) 
+	{
+  		console.log("in changePrimitive...");
+  		console.log("before:");
+  		console.log(primValue); //7
+  		primValue = 5;
+  		console.log("after:");
+  		console.log(primValue); //5
+	}
+	var value = 7;
+	changePrimitive(value); 
+	console.log("after changePrimitive, original value:");
+	console.log(value); //7
+
+
+
+
+
+	/* pass by reference */
+	var a = { x:7 } // a is an object literal with x propriety set to 7
+	var b = a;
+	console.log(a); // Object {x: 7}
+	console.log(b); // Object {x: 7}
+	b.x = 5; // they are both pointing to the same memory location
+	console.log("after b.x update:");
+	console.log(a); // Object {x: 5}
+	console.log(b); // Object {x: 5}
+
+	function changeObject(objValue) 
+	{
+  		console.log("in changeObject...");
+  		console.log("before:");
+  		console.log(objValue); // Object {x: 7}
+  		objValue.x = 5;
+  		console.log("after:");
+  		console.log(objValue); // Object {x: 5}
+	}
+
+	value = { x: 7 };
+	changeObject(value); 
+	console.log("after changeObject, original value:");
+	console.log(value); // Object {x: 5}
+
+
+
+
+	/* this keyword */
+	/* capital C because it`s a function constructor */
+	console.log("Function constructor:");
+	function Circle(radius) 
+	{
+		console.log(this); // Circle {}
+		/*
+		 3 - the function adds prorieties to the newly created object via this key word
+		     (this.radius, this.getArea)
+	    */
+		this.radius = radius;
+		// the function constructor doesn`t return anything
+		this.getArea = function () 
+					   {
+					   		return Math.PI * Math.pow(this.radius, 2);
+					   }
+	}
+	/* 1 - new object created (myCircle) */
+	/* 2 - myCircle object uses as a constructor function Circle() */
+	var myCircle = new Circle(10); 
+	console.log(myCircle);           	  // Circle {radius:10, getArea: function}
+	console.log(myCircle.getArea()); 	  // 314.1592653589793
+	console.log(myCircle.radius);    	  // 10
+	
+	var myOtherCircle = new Circle(20);
+	console.log(myOtherCircle);           // Circle {radius: 20, getArea: function}
+	console.log(myOtherCircle.getArea()); // 1256.6370614359173
+	console.log(myOtherCircle.radius);    // 20
+
+	console.log("this keyword used with literals:");
+	var literalCircle = 
+	{
+		color: "red",
+		radius: 10,
+		getArea: function()
+		{
+			var self = this; // in the inner functions of functions I reffer as self
+			// this is reffereing to the container object
+			console.log(this); // Object {radius: 10, getArea: function}
+			var increaseRadius = function()
+			{
+				self.radius = 20;
+			}
+			increaseRadius();
+			console.log(this.radius); // 20
+
+			return Math.PI * Math.pow(this.radius, 2);
+		}
+	}
+	console.log(literalCircle.getArea()); // 314.1592653589793
+	console.log(literalCircle.color); // red
+
+	</script>
+</body>
+</html>
