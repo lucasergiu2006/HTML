@@ -126,7 +126,7 @@ Content:
 		/*
 		 3 - the function adds prorieties to the newly created object via this key word
 		     (this.radius, this.getArea)
-	    */
+	        */
 		this.radius = radius;
 		// the function constructor doesn`t return anything
 		this.getArea = function () 
