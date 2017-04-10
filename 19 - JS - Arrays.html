@@ -1,0 +1,167 @@
+<!--
+Content:
+	* method to list an object
+	* array definition
+	* array functions
+			array_name.length 			  //intoarce un int cu dimensiuena vectorului
+			array_name.push("valoare") 	  // adauga la finalul vectorului elementul valoare
+			array_name.unshift("valoare") // adauga la inceputul vectorului elementul valoare
+			array_name.pop("valoare") 	  // extrage la finalul vectorului elementul valoare
+			array_name.shift("valoare")   // extrage la inceputul vectorului elementul valoare
+
+			adauga/extrage
+			unshift/shift ... push/pop
+			___________________________
+
+			CONCATENAREA A 2 VECTORI: var result = v1.concat(v2);
+			SORTARE array_name.sort()
+			INVERSARE array_name.reverse()
+			LISTA DE COMENZI array_name.sort().reverse() // se executa mai intai sort apoi reverse
+
+			___________________________
+
+			INDEXOF
+			// intoarce indexul unde se afla membrul, daca apare de mai multe ori intoarce doar prima aparitie
+			// daca nu apare intoarce -1
+			array_name.indexOf("array_member"); 
+			array_name.indexOf("array_meber, start pos");
+
+			___________________________
+
+
+			SLICE(START_POS, END_POS) 
+				var v = [1,2,3,k,5]
+				v.slice(2) == [3,k,5] // triaza vectorul incepand cu pozitia specificata INCLUSIV
+				v.slice(2,4) == [3,k] // triaza vectorul INCLUSIV start_pos, EXCLUSIV end_pos
+		
+			SPLICE(START_POS, LENGTH_OF_EXTRACTED TOKEN)
+				var v = [1,2,3,k,5]
+				v.splice(3,1) == k
+
+			INSERAREA INTR-O POZITIE OARECARE IN VECTOR CU 
+			SPLICE(POZITIA UNDE-L VREAU INSERAT, 0, TOKEN_CE_VREAU_INSERAT)
+				var pets = ["Dog", "Cat", "Hamster"];
+				splice(2,0,"Rabbit") == nu intoarce nimic
+				pets == ["Dog", "Cat", "Rabbit", "Hamster"];
+
+			____________________________
+
+			JOIN (see code)
+	
+		    
+-->
+<!doctype html>
+<html lang = "en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "arrays">
+	<title>Web page title placeholder</title>
+</head>
+
+<body>
+	<script>
+		/* array can store everything */
+		var array = new Array(4);
+		array[0] = " Sergiu"	
+		array[1] = 2;
+		array[2] = function (name) 
+				   {
+				   		console.log("Hello" + name);
+				   }
+		array[3] = 
+           {
+						course: "HTML, CSS, JS"
+				   }
+		console.log(array);
+		console.log(array[2]); // returns the function value
+		array[2](array[0]);    // I can execute functions via arrays
+		console.log(array[3].course);
+
+		/* another way to create an array */
+		var names = ["Bob", "Jhon", "Joe", {name: "Timmiy", age: "22"}];
+		console.log(names);
+
+
+		var names2 = ["Bob", "Jhon", "Joe"];
+		for (var i = 0; i < names2.length; i++)
+		{
+			console.log("Hello " + names2[i]);
+		}
+
+		/* A method to list an object */
+		console.log("\nA method to list an object");
+		var myObject = 
+		{
+			name: "Bob",
+			course: "HTML, CSS, JS",
+			platform: "Coursera"
+		}
+		for (var prop in myObject)
+		{
+			console.log(prop + ": " + myObject[prop]);
+			/* 
+		 	name: "Bob",
+			course: "HTML, CSS, JS",
+			platform: "Coursera"
+			*/
+		}
+
+
+       
+    /* Join */
+		var pets = new Array();
+		pets[0] = "Cat";
+		pets[1] = "Dog";
+		pets[2] = "Rabbit";
+		console.log(pets[2]);
+		console.log(pets.join(" and "));	// afiseaza and intre elemente
+		console.log(pets.join()); 		    // afiseaza , intre elemente
+		pets[2] = "Hamster";
+		console.log(pets[2]);
+		console.log(pets.length);
+		pets.push("Fish");
+		console.log(pets);
+		console.log(pets.length);
+		pets.unshift("Headhog");
+		console.log(pets);
+		console.log(pets.length);
+
+
+
+		/* concatenarea a 2 vectori */
+		var v1 = new Array(3);
+		var v2 = new Array(3);
+		var i;
+		for(i = 0; i <= 2; i++)
+			v1[i] = i;
+		for(i = 0; i <= 2; i++)
+			v2[i] = i+3;
+		var v1v2 = v1.concat(v2);
+		console.log(v1v2);
+
+
+		var v = new Array(10);
+		v[0] = 5; 
+		v[1] = 3;  
+		v[2] = 2;  
+		v[3] = 4;  
+		v[4] = 2;  
+		v[5] = "Str";  
+		v[6] = 5;  
+		v[7] = 3;  
+		v[8] = 4;  
+		v[9] = 5;  
+		var result = new Array();
+		for (var i = 0; i < v.length; i++)
+		{
+			if (v[i] == 5)
+			{
+				result.unshift(i);
+			}
+		}
+		console.log("we fond 5 at " + result.join() + " positions");
+		
+	 	</script>
+</body>
+</html>
