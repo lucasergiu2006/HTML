@@ -1,0 +1,98 @@
+<!--
+Content:
+	* Document Object Model (DOM)
+		* >> window.document (view the DOM tree in console)
+	* getElementById
+	* .value 
+	* .textContent
+	* .innerHTML
+	* .querySelector
+	* HANDLING EVENTS
+		* click, mousemove
+		* unobstrusive event binding
+		* DOMContentLoaded
+
+-->
+<!doctype html>
+<html lang = "en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "DOM,events">
+	<title>DOM and EVENTS lecture</title>
+
+</head>
+
+<body>
+	<h1 id = "title">DOM and EVENTS lecture</h1>
+	<p>
+		Say hello to
+		<input type = "text" id = "name">
+		<!-- onclick we call function sayHello()-->
+		<!-- <button onclick = "sayHello();">Say it!</button> -->
+		<!-- event handling can be done via unobstrusive event binding. I`m commenting previous line to demonstarte-->
+		<button>Say it!</button>
+
+	</p> 
+	<div id = "content1"></div>
+	<div id = "content2"></div>
+
+	<!-- we define script here to be sure that all elements loaded -->
+	<script>
+		console.log(document.getElementById("title")); 
+		// previous line will output <h1 id = "title">DOM lecture</h1>
+		function sayHello(event)
+		{
+			console.log(document.getElementById("name")); 		   	    // <input type = "text" id = "name">
+			var name = (document.getElementById("name").value);  	    // gets the value inserted by the user (value only for INPUT elements)
+			var message1 = "Hello " + name + "!"; 				        
+			document.getElementById("content1").textContent = message1; // textContent reffers to the text contet of an element 
+																		// (make message1 the div`s content)
+			var message2 = "<h1>Hello " + name + "!</h1>";    
+			document.getElementById("content2").innerHTML = message2;   // .innerHTML is like .textContent + HTML inside "" is seen as HTML.
+
+			if (name === "student")
+			{
+				/* 
+				querySelector select an element as in css 
+				instead of #title, because we have only one h1, we coul say h1
+				*/
+				document.querySelector("#title").textContent = document.querySelector("#title").textContent + " & lovin it"; 
+			}
+
+			/* we are changing the tag of the button after the button has been clicked */
+			document.querySelector("button").textContent = "Said it"; // this.textContent = "Said it"; // same effect
+
+			/*
+			We list proprieties of the event (click in this case)
+			MouseEvent {isTrusted: true, screenX: 280, screenY: 180, clientX: 280, clientY: 90…}
+			Learn event proprieties here: https://developer.mozilla.org/en/docs/Web/API/Event
+			*/
+			console.log(event); 
+		}
+
+		/* 
+		unobstrusive event binding
+		we are using an eventListener that calls function sayHello at click event 
+		*/
+		document.querySelector("button").addEventListener("click", sayHello);
+		document.addEventListener("DOMContentLoaded", function (event) {alert("I appear before everything else");} );
+
+		/* when the mouse is moved over body, we call this function, which */
+		document.querySelector("body").addEventListener("mousemove", function (event) 
+																	 {
+																	 	/* 
+																	 	clientX and clientY are proprieties of event, event which is mousemove
+																	 	console.log(event); 
+																	 	Obs: Coordinates will NOT be displayed over empty spaces
+																	 	*/ 
+																	 	if (event.shiftKey === true)
+																 		{
+																	 		console.log("x mouse coord now is " + event.clientX);
+																	 		console.log("y mouse coord now is " + event.clientY);
+																	 	}
+
+																	 });
+	</script>
+</body>
+</html>
