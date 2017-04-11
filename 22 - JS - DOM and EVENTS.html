@@ -43,7 +43,7 @@ Content:
 		// previous line will output <h1 id = "title">DOM lecture</h1>
 		function sayHello(event)
 		{
-			console.log(document.getElementById("name")); 		   	    // <input type = "text" id = "name">
+			console.log(document.getElementById("name")); 		    // <input type = "text" id = "name">
 			var name = (document.getElementById("name").value);  	    // gets the value inserted by the user (value only for INPUT elements)
 			var message1 = "Hello " + name + "!"; 				        
 			document.getElementById("content1").textContent = message1; // textContent reffers to the text contet of an element 
@@ -80,19 +80,19 @@ Content:
 
 		/* when the mouse is moved over body, we call this function, which */
 		document.querySelector("body").addEventListener("mousemove", function (event) 
-																	 {
-																	 	/* 
-																	 	clientX and clientY are proprieties of event, event which is mousemove
-																	 	console.log(event); 
-																	 	Obs: Coordinates will NOT be displayed over empty spaces
-																	 	*/ 
-																	 	if (event.shiftKey === true)
-																 		{
-																	 		console.log("x mouse coord now is " + event.clientX);
-																	 		console.log("y mouse coord now is " + event.clientY);
-																	 	}
+									     {
+									     	/* 
+									     	clientX and clientY are proprieties of event, event which is mousemove
+									     	console.log(event); 
+									     	Obs: Coordinates will NOT be displayed over empty spaces
+									     	*/ 
+									     	if (event.shiftKey === true)
+									     	{
+									     		console.log("x mouse coord now is " + event.clientX);
+									     		console.log("y mouse coord now is " + event.clientY);
+									     	}
 
-																	 });
+									     });
 	</script>
 </body>
 </html>
