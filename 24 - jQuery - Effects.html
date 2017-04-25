@@ -128,9 +128,9 @@ Content:
 					$("#div4").animate
 					({
 						 left: '250px', // it must be positioned before (either fixed, absolute or relative)
-            			 opacity: '0.5',
-            			 height: '+=100px',
-            			 width: '150px'
+            			 		 opacity: '0.5',
+            			 		 height: '+=100px',
+            					 width: '150px'
 					}, 	 "fast");		
 				}
 			)
@@ -148,8 +148,8 @@ Content:
 					var div = $("#div5");
 					div.animate({height: '300px', opacity: '0.4'}, "slow");
 					div.animate({width: '300px', opacity: '0.8'}, "fast");
-        			div.animate({height: '100px', opacity: '0.4'}, 5000);
-        			div.animate({width: '100px', opacity: '0.8'}, 5000);
+        				div.animate({height: '100px', opacity: '0.4'}, 5000);
+        				div.animate({width: '100px', opacity: '0.8'}, 5000);
 				}
 			)
 		}
@@ -188,6 +188,7 @@ Content:
 				function()
 				{
 					/* withouth the callback function, the alert would have appeared BEFORE the effect animation */
+					/* the callback function is always a parameter of hide() */
 					$("#callback-p").hide("slow", function() {alert("Paragraph now hidden");});
 				}
 			)
@@ -206,28 +207,28 @@ Content:
 	#panel, #flip 
 	{
 		padding: 5px;
-     	text-align: center;
+     		text-align: center;
    	 	background-color: #e5eecc;
    	 	border: solid 1px #c3c3c3;
 	}
 	#panel2, #flip2 
 	{
 		padding: 5px;
-     	text-align: center;
+     		text-align: center;
    	 	background-color: #e5eecc;
    	 	border: solid 1px #c3c3c3;
 	}
 	#panel3, #flip3 
 	{
 		padding: 5px;
-     	text-align: center;
+     		text-align: center;
    	 	background-color: #e5eecc;
    	 	border: solid 1px #c3c3c3;
 	}
 	#panel 
 	{
-    	padding: 50px;
-    	display: none;
+    		padding: 50px;
+    		display: none;
 	}
 	#panel2
 	{
