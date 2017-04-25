@@ -1,0 +1,160 @@
+<!--
+Content:
+	* jQuery 
+		-> jQuery is a JavaScript Library.
+		-> jQuery greatly simplifies JavaScript programming.
+		-> jQuery is a "write less, do more", JavaScript library.
+		-> The purpose of jQuery is to make it much easier to use JavaScript on your website.
+		-> The library is freely downloadable from  jQuery.com and reffered in head
+	* syntax
+		-> The jQuery syntax is made for selecting HTML elements and performing some action on the element(s).
+		-> Basic syntax is: $(selector).action()
+	* $(document).ready()
+		-> This is to prevent any jQuery code from running before the document is finished loading. When ready is fired, do what is in parantheses
+	* events
+		-> click, dblclick, focus, blur, hover etc.
+	* effects  
+		-> hide, show, toggle
+
+
+
+-->
+<!doctype html>
+<html lang = "en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"   content = "Sergiu Luca">
+	<meta name = "keywords" content = "jQuery,Introduction">
+	<title>jQuery - Introduction</title>
+	<!--simpler way to call jQuery-->
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+	<script>
+		// Selection is made as in css (either with element, id or class)
+		// (1)	$(select/query the document).and when document is ready (the ready event fires)
+		$(document).ready
+		(   
+			// (2) call function()
+			function()
+			{
+				// which selects all "button" in HTML and, when the buttons are clicked it calls function()
+    			$("#hide").click
+    			(
+    				function()
+    				{  
+    					// which selects all paragraps and hides them
+        				$("p").hide(); // (3) which fires hide event
+   					}
+   				)
+   			}
+		)
+		$(document).ready
+		(
+			function()
+			{
+				$("#show").click // when click event fires
+				(
+					function() // call function
+					{
+						$("p").show(); // which fires show event
+					}
+				)
+			}
+		)
+		$(document).ready
+		(
+			function()
+			{
+				$("#hide_all").click
+				(
+					function()
+					{
+						$("*").hide();
+					}
+				)
+			}
+		)
+		$(document).ready
+		(
+			function()
+			{
+				$("div").dblclick
+				(
+					function()
+					{
+						$(this).hide(); // this reffers to current. we do not use "" at this keyword
+					}
+				)
+			}
+		)
+		$(document).ready
+		(
+			function()
+			{
+				$("input").focus // if focus is fired.focus = if we click inside the input button
+				(
+					function()
+					{
+						$(this).css("background-color", "red");
+					}
+				)
+				$("input").blur // if blurr is fired.blurr = loosing of focus
+				(
+					function()
+					{
+						$(this).css("background-color", "white");
+					}
+				)
+				$("#hoverable").hover
+				(
+					function()
+					{
+						$(this).css("background-color", "red");
+						$(this).css("width", "150px");
+						alert("You are now hovering over 'This is a paragraph'");
+					}
+				)
+				
+			}
+		)
+		$(document).ready
+		(
+			function()
+			{
+				$("#toggle").click
+				(
+					function()
+					{
+						$(".togglable").toggle();	
+					}
+				)
+			}
+		)	
+	
+	</script>
+</head>
+
+<body>
+
+	<h1>Introduction to jQuery</h1>
+
+	<p id = "hoverable" style = "width: 150px">This is a paragraph.</p>
+	<p>This is another paragraph.</p>
+	<button id = "hide">Click me to hide paragraphs</button>
+	<button id = "show">Click me to show paragraphs</button>
+	<button id = "hide_all">Click me to hide ALL</button>
+
+	<br><br>
+	<div>Click me too</div>
+	<div>Click me away</div>
+
+	<br><br>
+	Name: <input type="text" name="fullname"><br>
+	Email: <input type="text" name="email">
+
+	<br><br>
+	<button id = "toggle">Toggle between hiding and showing the paragraphs</button>
+	<p class = "togglable">This is a paragraph with little content.</p>
+	<p class = "togglable">This is another small paragraph.</p>
+
+</body>
+</html>
