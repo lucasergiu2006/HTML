@@ -1,0 +1,422 @@
+<!--
+Content:
+	*DOM -> (Document object model). One very important part of jQuery is the possibility to manipulate the DOM.
+	 	    jQuery comes with a bunch of DOM related methods that make it easy to access and manipulate elements.
+	*GET -> text(),html(),val()
+	*SET -> text(),html(),val()
+	*ATTR-> reffers to attributes (for example anchors: title, href)
+	*ADD -> append -> HTML sensitive (append after)
+			prepend-> HTML sensitive (prepend before)
+			before/after -> HTML sensitive
+	*REMOVE -> The jQuery remove() method removes the selected element(s) and its child elements.
+	*EMPTY  -> The jQuery empty() method removes the child elements of the selected element(s).
+	*jQuery CSS 
+		-> addClass() - Adds one or more classes to the selected elements
+		-> removeClass() - Removes one or more classes from the selected elements
+		-> toggleClass() - Toggles between adding/removing classes from the selected elements
+		-> The css() method sets or returns one or more style properties for the selected elements.
+		   SET: css({"propertyname":"value","propertyname":"value",...});
+
+
+
+-->
+<!doctype html>
+<html lang = "en">
+<head>
+	<title>Manipulating DOM with jQuery</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name = "author"           content = "Sergiu Luca">
+	<meta name = "keywords"         content = "DOM,jQuery">
+	<script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+
+
+
+	<script>
+	/* GET -> text(),html(),val() */
+	$(document).ready
+	(
+		function()
+		{
+			/* show text */
+			var button1 = $("#b1");
+			button1.click
+			(
+				function()
+				{
+					alert("TEXT: " + $("#p1").text()); 
+				}
+			)
+			/* show html */
+			var button2 = $("#b2");
+			button2.click
+			(
+				function()
+				{
+					alert("HTML: " + $("#p1").html()); 
+				}
+			)
+
+		}
+	)
+	$(document).ready
+	(
+		function()
+		{
+			$("#b3").click
+			(
+				function()
+				{
+					var value = $("#i1").val();
+					alert("Value inside form field is " + value);
+				}
+			)
+		}
+	)
+	/* SET -> text(),html(),val() */
+	$(document).ready
+	(
+		function()
+		{
+			/* show text */
+			var button1 = $("#b4");
+			button1.click
+			(
+				function()
+				{
+					$("#p2").text("This text is written with SET") 
+				}
+			)
+			/* show html */
+			var button2 = $("#b5");
+			button2.click
+			(
+				function()
+				{
+					$("#p3").html("<b>This text is written with SET (with HTML bold)</b>")
+				}
+			)
+
+		}
+	)
+	$(document).ready
+	(
+		function()
+		{
+			$("#b6").click
+			(
+				function()
+				{
+					var value = $("#i2").val("This value is written with SET");
+				}
+			)
+		}
+	)
+	/* ATTR -> reffers to attributes (for example anchors: title, href) */
+	$(document).ready
+	(
+		function()
+		{
+			$("#b7").click
+			(
+				function()
+				{
+					$("#a1").attr
+					({
+						/* a1 hast two attributes: href and title */
+						href: "https://github.com/lucasergiu2006/HTML-CSS-Bootstrap-JS",
+						title: "2nd title dinamically modified"
+					});
+					$("#a1").text("Github");
+				}
+			)
+		}
+	)
+	/* 
+	ADD
+	append -> HTML sensitive (append after)
+	prepend-> HTML sensitive (prepend before)
+	before/after -> HTML sensitive
+	*/
+	$(document).ready
+	(
+		function()
+		{
+			$("#b8").click
+			(
+				function()
+				{
+					$("#p7").append("<b>Text dinamically appended via jQuery</b>");
+					$("#p8").append("Text dinamically appended via jQuery");
+				}
+			)
+			$("#b9").click
+			(
+				function()
+				{
+					$("#ol1").append("<li>List element dinamically appended via jQuery</li>");
+				}
+			)
+			$("#b10").click
+			(
+				function()
+				{
+					$("#p7").prepend("<b>Text dinamically prepended via jQuery</b>");
+					$("#p8").prepend("Text dinamically prepended via jQuery");
+				}
+			)
+			$("#b11").click
+			(
+				function()
+				{
+					$("#ol1").prepend("<li>List element dinamically prepended via jQuery</li>");
+				}
+			)
+		}
+	)
+	$(document).ready
+	(
+		function()
+		{
+			$("#b12").click
+			(
+				function()
+				{
+					$("body").append("Text appended to the body");
+				}
+			)
+		}
+	)
+	$(document).ready
+	(
+		function()
+		{
+			$("#b13").click
+			(
+				function()
+				{
+					$("#ol1").before("<b>Text added before lsit</b>");
+				}
+			)
+		}
+	)
+	$(document).ready
+	(
+		function()
+		{
+			$("#b14").click
+			(
+				function()
+				{
+					$("#ol1").after("<b>Text added after lsit</b>");
+				}
+			)
+		}
+	)
+	/* 
+	REMOVE
+		-> The jQuery remove() method removes the selected element(s) and its child elements.
+	EMPTY
+		-> The jQuery empty() method removes the child elements of the selected element(s). 
+	*/
+	$(document).ready
+	(
+		function()
+		{
+			$("#b15").click
+			(
+				function()
+				{
+					$("#div1").remove();
+				}
+			)
+		}
+	)
+	$(document).ready
+	(
+		function()
+		{
+			$("#b16").click
+			(
+				function()
+				{
+					$("#div1").empty();
+				}
+			)
+		}
+	)
+	/*
+	jQuery CSS 
+		addClass() - Adds one or more classes to the selected elements
+		removeClass() - Removes one or more classes from the selected elements
+		toggleClass() - Toggles between adding/removing classes from the selected elements
+		The css() method sets or returns one or more style properties for the selected elements.
+		SET: css({"propertyname":"value","propertyname":"value",...});
+	*/
+	$(document).ready
+	(
+		function()
+		{
+			$("#b17").click
+			(
+				function()
+				{
+					/* multiple selection */
+					$("#p10, #p11, #h2.1").addClass("blue");
+					$("#div2").addClass("important");
+				}
+			)
+		}
+	)
+	$(document).ready
+	(
+		function()
+		{
+			$("#b18").click
+			(
+				function()
+				{
+					/* multiple selection */
+					$("#p10, #p11, #h2.1").removeClass("blue");
+					$("#div2").removeClass("important");
+				}
+			)
+		}
+	)
+	$(document).ready
+	(
+		function()
+		{
+			$("#b19").click
+			(
+				function()
+				{
+					/* multiple selection */
+					$("#p10, #p11, #h2.1").toggleClass("blue");
+					$("#div2").toggleClass("important");
+				}
+			)
+		}
+	)
+	$(document).ready
+	(
+		function()
+		{
+			$("#b20").click
+			(
+				function()
+				{
+					/* return the background color with .css() method */
+					var bkc = $("#p12").css("background-color");
+					alert("Background color is " + bkc);
+				}
+			)
+			$("#b21").click
+			(
+				function()
+				{
+					/* sets the background color with .css() method */
+					$("#p12").css("background-color", "yellow");
+				}
+			)
+			$("#b22").click
+			(
+				function()
+				{
+					/* css({"propertyname":"value","propertyname":"value",...}); */
+					$("#p12").css({"background-color":"blue","font-size":"3em"});
+				}
+			)
+		}
+	)
+	</script>
+	<style>
+	.important 
+	{
+    	font-weight: bold;
+    	font-size: xx-large;
+    	color: red;
+	}
+	.blue 
+	{
+    	color: blue;
+	}
+	</style>
+</head>
+
+
+<body>
+<section>
+	<h2>GET -> text(),html(),val()</h2>
+	<button id="b1">Show Text in alert</button>
+	<button id="b2">Show HTML in alert</button>
+	<p id="p1">This is some <b>bold</b> text in a paragraph.</p>
+	<p>Name: <input type="text" value="Mickey Mouse" id = "i1"></p>
+	<button id = "b3">Show Value inside form field in alert</button>
+	<hr style = "width: 80%;">
+</section>
+<section>
+	<h2>SET -> text(),html(),val()</h2>
+	<p id="p2">This is a paragraph.</p>
+	<p id="p3">This is another paragraph.</p>
+	<p>Input field: <input type="text" id="i2" value="Mickey Mouse"></p>
+	<button id="b4">Set Text</button>
+	<button id="b5">Set HTML</button>
+	<button id="b6">Set Value</button>
+	<hr style = "width: 80%;">
+</section>
+<section>
+	<h2>ATTR</h2>
+	<p><a href ="https://www.google.ro/" title="original title" id="a1" target="_blank">Google</a></p>
+	<button id = "b7">Change href and title</button>
+	<hr style = "width: 80%;">
+</section>
+<section>
+	<h2>ADD</h2>
+	<h4>append -> HTML sensitive (after)</h4>
+	<p id = "p7">This is a paragraph.</p>
+	<p id = "p8">This is another paragraph.</p>
+	<ol id = "ol1">
+	 <li>List item 1</li>
+ 	 <li>List item 2</li>
+ 	 <li>List item 3</li>
+	</ol>
+	<button id="b8">Append text to both paragraphs</button>
+	<button id="b9">Append list items</button>
+	<h4>prepend -> HTML sensitive (before)</h4>
+	<button id="b10">Prepend text to both paragraphs</button>
+	<button id="b11">Prepend list items</button>
+	<h4>exercise append</h4>
+	<button id = "b12">Click to add some text to the body</button>
+	<h4>before/after</h4>
+	<button id = "b13">Click to add something before list (not prepend)</button>
+	<button id = "b14">Click to add something after list (not append)</button>
+	<hr style = "width: 80%;">
+</section>
+<section>
+	<h2>REMOVE</h2>
+	<div id="div1" style="height:100px;width:300px;border:1px solid black;background-color:yellow;">
+		This is some text in the div.
+		<p>This is a paragraph in the div.</p>
+		<p>This is another paragraph in the div.</p>
+	</div><br><br>
+	<button id = "b15">Remove div element</button>
+	<button id = "b16">Remove the children of the div element</button>
+	<hr style = "width: 80%;">
+</section>
+<section>
+	<h2>jQuery CSS</h2>
+	<p id = "p10">This is a paragraph.</p>
+	<p id = "p11">This is another paragraph.</p>
+	<div id = "div2">This is some important text!</div><br>
+	<button id = "b17">Add classes to elements</button>
+	<button id = "b18">Remove classes from elements</button>
+	<button id = "b19">Toggle between adding and removing classes from elements</button><br><br>
+	<p id = "p12" style="background-color:#ff0000">This is a paragraph.</p><br><br>
+	<button id = "b20">Return background-color of previous paragraph</button>
+	<button id = "b21">And now set the background-color of previous paragraph to yellow</button>
+	<button id = "b22">And now set the background-color of previous paragraph to blue and increase its font size</button>
+	<hr style = "width: 80%;">
+</section>
+
+</body>
+</html>
